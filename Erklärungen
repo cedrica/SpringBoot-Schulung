@@ -1,0 +1,22 @@
+clean code == Regel nach welche man ein Project gestalten soll damit es sauber is, wartbar ..etc
+
+1. Packagestruktur
+	Aufgaben müssen delegiert werden an jeweiligen klassen.
+	Klassen die die selbe aufgabe machen landen in dem gleichen package 
+		( UserDAO, AccountDAO, AdressDAO ==> package = dao) 
+			DAO ==> persistence holt nur Daten aus DB mehr nicht
+		(UserService, AdressService .. ==> package = service)
+			Service bearbeiten die aus der DB geholten Daten. z.b. 
+			 Nahdem ein User gehlt wird von der DB dann kann ein Service z.B. sein Name ändern.
+			 Name ändern passirt nicht in der DAO Klasse
+	
+	 Ziel: Klasse möglich klein zu halten damit sie einfach zu testen werden
+	 
+2. Was soll/will the client als response haben um sein Request dementsprechend zu verabeiten
+
+HttpStatus 
+
+ 1xx --> Info Message
+ 2xx --> Erfolgreich 200 Erfolgreich abfrage / 201 Erfolgreich gespeichert
+ 4xx --> (400 =/uses/1) (400 = /users/233) (404 = /users/2323)
+ 5xx --> 500 (Technische Error)
