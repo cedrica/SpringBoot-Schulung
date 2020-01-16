@@ -2,11 +2,13 @@ package com.springboot.schulung.model;
 
 import java.util.Date;
 
+
 public class User {
 	private Integer id;
 	private String name;
 	private int age;
 	private Date birthDate;
+	private Adresse adress;
 	
 	
 	public User(Integer id, String name, int age, Date birthDate) {

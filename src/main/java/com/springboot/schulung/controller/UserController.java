@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.schulung.doaservice.UserDAOService;
+import com.springboot.schulung.exception.UserNotFoundException;
 import com.springboot.schulung.model.User;
 
 /**
@@ -40,7 +41,7 @@ public class UserController {
 	public User retrieveUserById(@PathVariable("id") int id) throws Exception{
 		User user = userDAOService.findById(id);
 		if(user == null)
-			throw new Exception("User not Found");
+			throw new UserNotFoundException("User not Found");
 		return user;
 	}
 	
